@@ -40,6 +40,22 @@ python manage.py makemigrations
 ```
 python manage.py runserver
 ```
+## Alternative Using docker
+- Run to build the docker container
+```
+docker-compose up --build
+```
+- Check the container conditions
+```
+docker ps 
+```
+- Get the container Id to excute migrations
+```
+docker exec -t -i  [container id] bash
+```
+- Root instance will appear to run migrations
+```
+python manage.py migrate && python manage.py makemigrations
 
 ## API usage
 
