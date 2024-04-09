@@ -53,9 +53,14 @@ docker ps
 ```
 docker exec -t -i  [container id] bash
 ```
-- Root instance will appear to run migrations
+- Root instance will appear to run individual migrations (i.e Users)
 ```
-python manage.py migrate && python manage.py makemigrations
+python manage.py makemigrations Users && python manage.py migrate Users
+```
+- Then run general migrations 
+```
+python manage.py makemigrations && python manage.py migrate
+```
 
 ## API usage
 
