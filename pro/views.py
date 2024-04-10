@@ -1,8 +1,12 @@
 from rest_framework import generics
 from .models import *
 from .serializers import *
+from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
 class OwnerListCreate(generics.ListCreateAPIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
     queryset = Owner.objects.all()
     serializer_class = OwnerSerializer
 
