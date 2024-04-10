@@ -12,4 +12,10 @@ class RegisterAPIView(APIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors)
-        
+    
+class LogoutAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        request.user.auth_token.delete()
+        return Response(status=204)        
