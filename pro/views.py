@@ -30,6 +30,10 @@ class TenantRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Tenant.objects.all()
     serializer_class = TenantSerializer
 
+def get_total_tenants(request):
+    total_tenants = Tenant.objects.all().count()
+    return total_tenants
+
 class RentalContractListCreate(generics.ListCreateAPIView):
     queryset = RentalContract.objects.all()
     serializer_class = RentalContractSerializer
